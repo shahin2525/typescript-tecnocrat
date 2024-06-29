@@ -14,4 +14,11 @@
   console.log(result1);
   //   kgToGm(10);
   //
+  type Message = {
+    message: string;
+  };
+  try {
+  } catch (error) {
+    console.log((error as Message).message);
+  }
 }
