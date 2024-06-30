@@ -1,61 +1,58 @@
-interface Developer<T, X = null> {
-  name: string;
-  computer: {
-    brand: string;
-    model: string;
-    price: number;
-    releaseYear: number;
+{
+  //
+
+  interface Developer<T, X = null> {
+    name: string;
+    computer: {
+      brand: string;
+      price: number;
+      model: string;
+    };
+    smartWatch: T;
+    bike?: X;
+  }
+
+  const developer1: Developer<{ brand: string; price: number }, null> = {
+    name: "ra",
+    computer: {
+      brand: "samsung",
+      price: 101010,
+      model: "s20",
+    },
+    smartWatch: {
+      brand: "apple",
+      price: 1010,
+    },
   };
-  smartWatch: T;
-  bike?: X;
+  interface HP {
+    brand: string;
+    price: number;
+    model: string;
+  }
+  interface Yamaha {
+    brand: string;
+    price: number;
+    version: string;
+    releaseYear: number;
+  }
+  const developer2: Developer<HP, Yamaha> = {
+    name: "saki",
+    computer: {
+      brand: "hp",
+      price: 1600,
+      model: "h31",
+    },
+    smartWatch: {
+      brand: "xiomi",
+      price: 1600,
+      model: "x50",
+    },
+    bike: {
+      brand: "yamaha",
+      price: 220000,
+      version: "fz",
+      releaseYear: 2224,
+    },
+  };
+  //
 }
-interface Apple {
-  brand: "iphone";
-  price: 1000;
-}
-const poorDeveloper: Developer<Apple> = {
-  name: "rakib",
-  computer: {
-    brand: "lenovo",
-    model: "ht101",
-    price: 20000,
-    releaseYear: 2001,
-  },
-  smartWatch: {
-    brand: "iphone",
-    price: 1000,
-  },
-};
-
-interface Samsung {
-  brand: string;
-  price: number;
-  model: string;
-  heartTrack: boolean;
-  sleepTrack: boolean;
-}
-
-interface Yamaha {
-  brand: string;
-  price: number;
-}
-const richDeveloper: Developer<Samsung, Yamaha> = {
-  name: "rakib",
-  computer: {
-    brand: "lenovo",
-    model: "ht101",
-    price: 20000,
-    releaseYear: 2001,
-  },
-  smartWatch: {
-    brand: "iphone",
-    price: 1000,
-    model: "ul122",
-    heartTrack: true,
-    sleepTrack: false,
-  },
-  bike: {
-    brand: "yamaha",
-    price: 20000,
-  },
-};
