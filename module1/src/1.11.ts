@@ -1,27 +1,26 @@
 {
   //
-  type GenericArray<T> = Array<T>;
+  type GenericTypeArray<T> = Array<T>;
+  const user: GenericTypeArray<number> = [10, 20, 30];
+  const user2: GenericTypeArray<string> = ["ra", "sa", "ta"];
+  const user3: GenericTypeArray<boolean> = [true, false, true];
 
-  const roolList: GenericArray<number> = [10, 20, 30];
-  const roolList2: GenericArray<string> = ["10", "20", "30"];
-  const roolList3: GenericArray<boolean> = [true, false, true];
+  // generic array of object
 
-  const userList: GenericArray<{ name: string; age: number; role: string }> = [
-    {
-      name: "mej",
-      age: 10,
-      role: "ad",
-    },
-    {
-      name: "rofi",
-      age: 16,
-      role: "aj",
-    },
+  const user4: GenericTypeArray<{ name: string; age: number; role: string }> = [
+    { name: "sa", age: 10, role: "student" },
+    { name: "ro", age: 16, role: "teacer" },
+    { name: "s", age: 10, role: "admin" },
   ];
-  type GeniricTuple<x, y> = [x, y];
-  const userId: GeniricTuple<number, { name: string; email: string }> = [
-    20,
-    { name: "rakib", email: "raki@gmail" },
-  ];
+
+  // generic tuple
+
+  type GenericTuple<x, y> = [x, y];
+
+  const user5: GenericTuple<string, number> = ["dsss", 10];
+  const user6: GenericTuple<
+    number,
+    { name: string; age: number; isSingle: boolean }
+  > = [1000, { name: "sakik", age: 10, isSingle: true }];
   //
 }
