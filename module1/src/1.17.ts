@@ -11,4 +11,4 @@ type Sheikh = {
 };
 
 type CheckVehicle<T> = T extends keyof Sheikh ? true : false;
-type HasTractor = CheckVehicle<"bike">;
+type HasTractor = CheckVehicle<"honda">;
