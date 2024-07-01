@@ -12,6 +12,9 @@
     };
     const result1 = kgToGm(10);
     console.log(result1);
-    //   kgToGm(10);
-    //
+    try {
+    }
+    catch (error) {
+        console.log(error.message);
+    }
 }
