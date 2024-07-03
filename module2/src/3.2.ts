@@ -1,40 +1,46 @@
-class Person {
+class Animal {
   name: string;
-  age: number;
-  address: string;
-
-  constructor(name: string, age: number, address: string) {
-    (this.name = name), (this.age = age);
-    this.address = address;
+  species: string;
+  constructor(name: string, species: string) {
+    this.name = name;
+    this.species = species;
   }
+  makeSound() {
+    console.log("I am sounding");
+  }
+}
+const isDog = (animal: Animal): animal is Dog => {
+  return animal instanceof Dog;
+};
+const isCat = (animal: Animal): animal is Cat => {
+  return animal instanceof Cat;
+};
 
-  getSleep(numOfHours: number) {
-    console.log(`the ${this.name} will sleep for ${numOfHours}`);
+const getAnimal = (animal: Animal) => {
+  if (isDog(animal)) {
+    animal.soundGew();
+  } else if (isCat(animal)) {
+    animal.soundMew();
+  }
+};
+
+class Dog extends Animal {
+  constructor(name: string, species: string) {
+    super(name, species);
+  }
+  soundGew() {
+    console.log(`${this.name} sound gew`);
   }
 }
 
-class Student extends Person {
-  constructor(name: string, age: number, address: string) {
-    super(name, age, address);
+class Cat extends Animal {
+  constructor(name: string, species: string) {
+    super(name, species);
+  }
+  soundMew() {
+    console.log(`${this.name} sound mew`);
   }
 }
-const student = new Student("rakib", 10, "josore");
 
-//
-
-class Teacher extends Person {
-  designation: string;
-
-  constructor(name: string, age: number, address: string, designation: string) {
-    super(name, age, address);
-    this.designation = designation;
-  }
-
-  getSleep(numOfHours: number) {
-    console.log(`the ${this.name} will sleep for ${numOfHours}`);
-  }
-  takeClass(numOfClass: number) {
-    console.log(`the ${this.name} will take class for ${numOfClass}`);
-  }
-}
-const teacher = new Teacher("rakib", 10, "josore", "professor");
+const dog = new Dog("tomi", "dog");
+const cat = new Cat("pusi", "cat");

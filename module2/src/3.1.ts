@@ -1,22 +1,26 @@
 {
-  //
+  type Normal = {
+    name: string;
+  };
+  type Rich = {
+    name: string;
+    role: "admin";
+  };
 
-  class Animal {
-    constructor(
-      public name: string,
-      public species: string,
-      public sound: string
-    ) {}
-
-    makeSound() {
-      console.log(`the ${this.name} say ${this.sound}`);
+  const getUser = (user: Normal | Rich) => {
+    if ("role" in user) {
+      console.log(`the user name is ${user.name} role ${user.role}`);
+    } else {
+      console.log(`the user name ${user.name}`);
     }
-  }
+  };
 
-  const dog = new Animal("tomi", "dog", "gew, gew");
-  const cat = new Animal("pusi", "cat", "mew, mew");
-  const tiger = new Animal("bengal", "tiger", "oi, oi");
-  const cow = new Animal("jahed khan", "cow", "hamba, hamba");
-  cow.makeSound();
-  //
+  const normalUser: Normal = {
+    name: "rak",
+  };
+  const richUser: Rich = {
+    name: "rak",
+    role: "admin",
+  };
+  const res1 = getUser(normalUser);
 }
